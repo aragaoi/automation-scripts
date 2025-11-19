@@ -50,16 +50,29 @@ git pr develop
 
 ## Installation
 
-Clone this repository and copy scripts to your `~/bin` directory:
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/aragaoi/automation-scripts.git
+   cd automation-scripts
+   ```
 
+2. Run the setup script (copies files to `~/bin` and configures git alias):
+   ```bash
+   ./setup.sh
+   ```
+
+The setup script will:
+- Copy all scripts to `~/bin`
+- Make them executable
+- Configure the git alias `pr`
+
+**Alternative manual installation:**
+
+If you prefer to install manually:
 ```bash
 git clone https://github.com/aragaoi/automation-scripts.git
 cp automation-scripts/bin/* ~/bin/
 chmod +x ~/bin/*.sh
-```
-
-Then run the setup script:
-```bash
 ~/bin/git-setup.sh
 ```
 
