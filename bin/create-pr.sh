@@ -139,7 +139,11 @@ if [ -n "$EXISTING_PR" ]; then
   
   echo "" >&2
   echo "PR updated: $EXISTING_PR_URL"
-  open "$EXISTING_PR_URL"
+  if command -v open >/dev/null 2>&1; then
+    open "$EXISTING_PR_URL"
+  elif command -v xdg-open >/dev/null 2>&1; then
+    xdg-open "$EXISTING_PR_URL"
+  fi
 else
   echo "" >&2
   echo "Title: $PR_TITLE" >&2
@@ -175,7 +179,11 @@ else
   
   if [ -n "$PR_URL" ]; then
     echo "PR created: $PR_URL"
-    open "$PR_URL"
+    if command -v open >/dev/null 2>&1; then
+      open "$PR_URL"
+    elif command -v xdg-open >/dev/null 2>&1; then
+      xdg-open "$PR_URL"
+    fi
   else
     echo "PR created, but could not extract URL. Please check manually."
   fi
